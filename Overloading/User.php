@@ -13,7 +13,7 @@ class User
         if (!method_exists($this, $name)) {
             throw new \Exception("no such method as " . $name);
         }
-        $this->$name($arguments[0]);
+        call_user_func_array([$this, $name], $arguments);
     }
 
     private function setName($name)
